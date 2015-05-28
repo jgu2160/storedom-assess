@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="row"></div>
+  <div class="col-sm-3">
+    <h5><%= @item.name %></h5>
+    <%= image_tag(@item.image_url) %>
+    <p>
+      <%= @item.description %>
+    </p>
+    <%= button_to "One Click Checkout", orders_path, params: {item_id: @item.id}, id: "checkout" %>
+  </div>
+</div>

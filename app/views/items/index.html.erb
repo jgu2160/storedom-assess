@@ -1,0 +1,21 @@
+<div class="container" ng-app="storedom" ng-controller="FavoritesController" data-ng-init="fillFavorites()">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1><%= @items.count %> Items</h1>
+    </div>
+  </div>
+  <div class="row"></div>
+  <% @items.each do |item| %>
+    <div class="col-sm-3">
+      <h5>
+        <%= link_to item.name, item%>
+      </h5>
+      <p>
+        <%= item.description %>
+      </p>
+      <button type="button" ng-show="showRemove(<%=item.id%>)" ng-click="addFavorite(<%= item.id %>)" >Favorite</button>
+      <button type="button" ng-hide="showRemove(<%=item.id%>)" ng-click="removeFavorite(<%= item.id %>)" >Unfavorite</button>
+    </div>
+  <% end %>
+</div>
+
